@@ -11,7 +11,7 @@
 }
 
 .welcome{
-height:300px;width:100%;background-color:#b0e0e6;display:flex;justify-content:center;align-items:center;font-size:30px;font-weight:bold;
+height:300px;;background-color:#b0e0e6;display:flex;justify-content:center;align-items:center;font-size:30px;font-weight:bold;
 }
 
 
@@ -26,7 +26,7 @@ grid-auto-rows:minmax(10px,auto);
 
 .even{background-color:#b0e0e6;text-align:center;padding:5px;}
  @media screen and (max-width:600px){
-	 .list{flex:none;padding:0px 2px 0px 2px;
-	
+	 .list{flex:none;padding:0px 2px 0px 2px;}
+	.welcome{width:100%;}
  }
 
