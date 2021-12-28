@@ -23,7 +23,7 @@ grid-auto-rows:minmax(10px,auto);
 
 .block{display:grid;grid-template-rows:9fr 1fr;}
 
-.odd>img{width:295px;height:184.375px;max-width:100%;display:block;vertical-align:top}
+.odd>img{width:295px;height:184.375px;max-width:100%;display:block;vertical-align:top;}
 
 .even{background-color:#b0e0e6;text-align:center;padding:5px;}
 
