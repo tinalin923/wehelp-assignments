@@ -21,8 +21,8 @@ grid-gap:15px;
 grid-auto-rows:minmax(184px,auto);
 }
 
-
-.odd>img{max-width:100%;display:block;vertical-align:top;}
+.wrapper div{border:solid 1px red}
+.odd>img{width:100%;display:block;vertical-align:top;}
 
 .even{background-color:#b0e0e6;text-align:center;padding:5px;}
 
