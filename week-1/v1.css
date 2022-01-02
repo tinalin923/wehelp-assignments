@@ -16,7 +16,8 @@
 	position:fixed;
 	right:0;
 	top: 35px;
-	background-color:black;
+	bottom:0;
+	background-color:#292421;
 	/* 用 translate 把選單藏到畫面右邊去 */
 	transform: translateX(100%);
 	transition:transform 0.5s;}
