@@ -7,14 +7,34 @@
 .right{flex:none;display:flex;justify-content:space-around;align-items:center}
 .list{flex:none;padding:0px 8px 0px 8px;}
 
-.icon{display:none;padding-right:10px;}
-.icon>img{width:20px;}
+
+#burger{display:none;}
+.ham{display:none;padding-right:10px;}
+.ham>img{width:20px;}
+.menu{
+	display:none;
+	position:fixed;
+	right:0;
+	top: 35px;
+	background-color:black;
+	/* 用 translate 把選單藏到畫面右邊去 */
+	transform: translateX(100%);
+	transition:transform 0.5s;}
+.menu-list{
+	list-style-type: none; 
+	margin:0px;
+	padding:0px;
+	}
+.menu-item{padding:10px; 
+	margin:5px;}
+.menu-link{text-decoration: none;
+	color:white;}
 
 .welcome{
-height:300px;;background-color:#b0e0e6;display:flex;justify-content:center;align-items:center;font-size:30px;font-weight:bold;
+height:300px;background-color:#b0e0e6;display:flex;justify-content:center;align-items:center;font-size:30px;font-weight:bold;
 }
 
-.wrapper{width:1200px;margin-top:30px;margin-left:auto;margin-right:auto;
+.wrapper{max-width:1200px;margin-top:30px;margin-left:auto;margin-right:auto;
 display:grid;grid-template-columns:repeat(4,1fr);
 grid-gap:15px;
 grid-auto-rows:minmax(184px,auto);
@@ -35,6 +55,7 @@ grid-auto-rows:minmax(184px,auto);
 @media screen and (max-width:600px){
 	.wrapper{width:90%;grid-template-columns:1fr;}
 	.list{display:none;}
-	.icon{display:block;}
-	
+	.ham{display:block;}
+	.menu{display:block;}
+	#burger:checked ~ .menu{transform:none;}
 }
