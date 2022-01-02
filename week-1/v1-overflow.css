@@ -1,40 +1,67 @@
 
 .top{
-	padding:0px 0px 5px 0px;display:flex;justify-content:space-between;align-items:center}
+	/*使畫面滾動時，仍固定在最上端 */
+	position:fixed;
+	top:0;left:0;right:0;
+	
+	padding:10px 0px 10px 0px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center}
 .left{flex:none;font-weight:bold;}
-
 .middle{flex:auto;}
-
-.right{flex:none;display:flex;justify-content:space-around;align-items:center}
+.right{flex:none;
+	display:flex;
+	justify-content:space-around;
+	align-items:center}
 .list{flex:none;padding:0px 8px 0px 8px;}
-
+.list:hover{background-color:rgb(201, 207, 218);}
 
 #burger{display:none;}
 .ham{display:none;padding:8px;}
 .ham:hover{background-color:rgb(201, 207, 218);}
 .ham>img{width:20px;}
 .menu{
-	display:none;
-	position:fixed;
+	/*必須先固定在一個位置*/
+	position:absolute;
 	right:0;
-	top: 45px;
-	bottom:0;
+	left:0;
+	top:45px;
 	background-color:#292421;
-	/* 用 translate 把選單藏到畫面右邊去 */
-	transform: translateX(100%);
-	transition:transform 0.5s;}
+	height: 0px;
+	border:5px solid green;
+	}
 .menu-list{
+	/*把display:none從menu
+	移到menu-list or menu-item就出現往下展開的效果*/
+	/*display:none;*/
+	display:block;
+	position:absolute;
+	right:0;
+	left:0;
+	top:45px;
 	list-style-type: none; 
 	margin:0px;
 	padding:0px;
-	}
-.menu-item{padding:10px; 
-	margin:5px;}
+	height: 0px;
+	border:1px solid red;}
+	
+.menu-item{
+	display:none;
+	/*display:block;*/
+	padding:10px; 
+	margin:5px;
+	text-align:center;
+	border:1px solid pink;}
+.menu-item:hover{background-color:darkseagreen}
 .menu-link{text-decoration: none;
 	color:white;}
 
 .welcome{
-height:300px;background-color:#b0e0e6;display:flex;justify-content:center;align-items:center;font-size:30px;font-weight:bold;
+margin-top:45px;
+height:300px;background-color:#b0e0e6;
+display:flex;justify-content:center;align-items:center;
+font-size:30px;font-weight:bold;
 }
 
 .wrapper{max-width:1200px;margin-top:30px;margin-left:auto;margin-right:auto;
@@ -58,7 +85,29 @@ grid-auto-rows:minmax(184px,auto);
 @media screen and (max-width:600px){
 	.wrapper{width:90%;grid-template-columns:1fr;}
 	.list{display:none;}
+	.top{padding-top:5px;}
+	/*.right{flex-direction:column;}*/
 	.ham{display:block;}
-	.menu{display:block;}
-	#burger:checked ~ .menu{transform:none;}
+
+	#burger:hover ~ .menu{
+		/*display:block;*/
+		height:180px;
+		/* transform:translateY(0%);*/
+		transition:all 0.5s;
+		}
+	#burger:hover ~ ul{
+		height:180px;
+		transition:all 0.5s;
+		}
+	/*.menu:hover .menu-list{
+		display:block;
+		z-index:99;}*/
+	ul:hover ~ .menu-item{
+		display:block;
+	
+	/*menu-item還是出不來~~~*/
+	}
+
+	
+	
 }
