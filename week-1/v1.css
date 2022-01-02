@@ -1,5 +1,6 @@
 
-.top{padding:0px 0px 5px 0px;display:flex;justify-content:space-between;align-items:center}
+.top{
+	padding:0px 0px 5px 0px;display:flex;justify-content:space-between;align-items:center}
 .left{flex:none;font-weight:bold;}
 
 .middle{flex:auto;}
@@ -9,13 +10,14 @@
 
 
 #burger{display:none;}
-.ham{display:none;padding-right:10px;}
+.ham{display:none;padding:8px;}
+.ham:hover{background-color:rgb(201, 207, 218);}
 .ham>img{width:20px;}
 .menu{
 	display:none;
 	position:fixed;
 	right:0;
-	top: 35px;
+	top: 45px;
 	bottom:0;
 	background-color:#292421;
 	/* 用 translate 把選單藏到畫面右邊去 */
