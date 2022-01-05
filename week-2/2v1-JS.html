@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+   
+    <script type="text/javascript">
 
+    //第一題
+    function calculate(min, max){
+        var sum=0;
+        for (var n=min;n<=max;n++){
+                sum=sum+n;
+        }
+        console.log(sum);
+        // return sum;
+        
+    }
+    calculate(1, 3); // 你的程式要能夠計算 1+2+3，最後印出 6
+    calculate(4, 8); // 你的程式要能夠計算 4+5+6+7+8，最後印出 30
+
+
+    //第二題
+    function avg(data){
+        var number=data["count"];
+        //console.log(number);  
+        var total=0;
+        for(var i=0;i<=number-1;i++){  
+            var money=data["employees"][i]["salary"];  //此行要放在for迴圈裡，才可以定義出i的值
+            total+=money;
+        }
+        var result=total/number;
+        console.log(result);
+    }
+    avg({
+    "count":3,
+    "employees":[
+    {
+    "name":"John",
+    "salary":30000
+    },
+    {
+    "name":"Bob",
+    "salary":60000
+    },
+    {
+    "name":"Jenny",
+    "salary":50000
+    }
+    ]
+    }); // 呼叫 avg 函式
+
+    //第三題
+        function maxProduct(nums){
+            var result=[];
+            for(var i=0;i<nums.length-1;i++){
+                for(var j=1;j<nums.length;j++){
+                    if (i==j){continue}
+                    else if (i>j){continue}
+                    else {
+                        result.push(nums[i]*nums[j]);  
+                        //不是用:result.join(nums[i]*nums[j]);
+                        //join()內要放"," or"-"之類的separator
+                        
+                        //console.log(result);
+                        }
+                }
+
+            }
+            //console.log(result.join());  //嘗試將列表內的值分開表示，但仍被認為是列表
+            var k=Math.max(...result);  //Math是一內建函數，而非自創變數   //Math.max(列表名稱)會顯示NAN是因為列表本身是陣列(array)的一種，而非number
+            //Math.max(...列表名稱)可以將列表內的個別數字一一分開  //或是改成:var k=Math.max.apply(Math,result);
+            console.log(k);   
+            //console.log(typeof result.join());  ======string
+            //console.log(typeof result);         ======object                     
+        }
+        maxProduct([5, 20, 2, 6]) //得到 120
+        maxProduct([10, -20, 0, 3]) // 得到 30
+        maxProduct([-1, 2]) //得到 -2
+        maxProduct([-1, 0, 2]) // 得到 0
+        maxProduct([-1, -2, 0]) //得到 2
+        
+    //第四題
+    function twoSum(nums, target){
+        var count=nums.length;
+        for (i=0;i<count-1;i++){
+            for(j=1;j<count;j++){
+                if (i==j){continue}
+                if (i>j){continue}
+                if(nums[i]+nums[j]==target){
+                    return [i,j]
+
+                }
+            }
+        }
+    }
+    let result=twoSum([2, 11, 7, 15], 9);
+    console.log(result); // show [0, 2] because nums[0]+nums[2] is 9
+    
+    
+    
+    
+    // //第五題
+
+
+
+
+
+
+    </script>
+    
+    
+</head>
+<body>
+    
+</body>
+</html>
