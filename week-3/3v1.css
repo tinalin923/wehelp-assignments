@@ -9,7 +9,7 @@
 .list{flex:none;padding:0px 8px 0px 8px;}
 
 
-#burger{display:none;}
+#burger{display:none;}       /*  # 為id選擇器*/
 .ham{display:none;padding:8px;}
 .ham:hover{background-color:rgb(201, 207, 218);}
 .ham>img{width:20px;}
