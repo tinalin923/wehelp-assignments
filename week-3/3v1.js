@@ -26,35 +26,60 @@ function getRequest() {
     //     jschange[i].style.backgroundColor="green";
     //     jschange[i].style.color = "white"
     // 
-    let oldname = document.querySelectorAll(".even");
-     //console.log(oldname); //為一個node list
-    
+    //console.log(typeof(request.responseText));  //為一字串，必須透過JSON.parse轉為物件
    
+    //concole.log(request.responseText.toLowerCase());  //將字串轉為小寫
+    let data=JSON.parse(request.responseText.toLowerCase());
+    let list=data["result"]["results"];
+    //console.log (typeof(list));
+    let web =list[0]["file"];
+    let end= web.search('jpg');         //63 和py一樣
+    console.log(web.slice(0,end+3));   
+
+
+    let oldname = document.querySelectorAll(".even");
+    let oldpic=document.querySelectorAll(".odd");
+    //console.log(oldname); //為一個node list
+    //let oldn= document.getElementsByClassName("even");
+    //console.log(oldn);//為一物件 HTMLcollection
+    
     //第一組
+    //地名
     let place0 =document.getElementById('place0');
-    let newDiv0 = document.createElement('div');     //在建立新的 div 元素節點 newDiv 後，這時候我們在瀏覽器上還看不到它，透過 appendChild()、insertBefore() 或 replaceChild()將新元素加入至指定的位置之後才會顯示
-    // newDiv.id = "myNewDiv";  新建立的 newDiv 我們也可以同時對它指定屬性
-    // newDiv.className = "box";
-    let newName0 = document.createTextNode("我愛你");   //建立文字節點， ()內加入字串
-    newDiv0.appendChild(newName0);  //透過 newDiv.appendChild 將 textNode 加入至 newDiv
-    place0.replaceChild(newName0, oldname[0]);
+    let newN0 = document.createElement('div');     //在建立新的 div 元素節點 newDiv 後，這時候我們在瀏覽器上還看不到它，透過 appendChild()、insertBefore() 或 replaceChild()將新元素加入至指定的位置之後才會顯示
+    // newN0.id = "myNewDiv";  新建立的 newDiv 我們也可以同時對它指定屬性
+    // newN0.className = "box";
+    let newname0 = document.createTextNode(list[0]["stitle"]);   //建立文字節點， ()內加入字串
+    newN0.appendChild(newname0);  //透過 newDiv.appendChild 將 textNode 加入至 newDiv
+    //console.log(typeof(newN0));
+    newN0.className = "even";
+    //newN0.style.backgroundColor="blue";
+    //let x =newN0.classList.contains("even");
+    //console.log(x);
+    place0.replaceChild(newN0, oldname[0]);
+    //照片
+    let newP0 = document.createElement("div");
+    let newpic0 =document.createElement("img");
+    newP0.appendChild(newpic0);
+    newP0.className="odd";
+    newpic0.src=web.slice(0,end+3);
+    place0.replaceChild(newP0, oldpic[0]);
+    
+    
     //第二組
     let place1 =document.getElementById('place1');
     let newDiv1 = document.createElement('div');    
-    let newName1 = document.createTextNode("我愛你");   
+    let newName1 = document.createTextNode(list[1]["stitle"]);   
     newDiv1.appendChild(newName1);
     place1.replaceChild(newName1, oldname[1]);
-    //console.log(typeof(request.responseText));  //為一字串，必須透過JSON.parse轉為物件
-    let data=JSON.parse(request.responseText);
-    let list=data["result"]["results"];
-    //console.log (typeof(list));
+    
 
 
     }
   
 
 
-    
+
     //document.write(request.responseText)    //當網頁已經讀取(onload)完成後才執行 document.write()，則裡面的內容(request.responseText)會完全覆蓋掉目前的網頁
   
 //     let y=request.responseText.result;
