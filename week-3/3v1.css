@@ -1,14 +1,9 @@
-
 .top{
 	padding:0px 0px 5px 0px;display:flex;justify-content:space-between;align-items:center}
 .left{flex:none;font-weight:bold;}
-
 .middle{flex:auto;}
-
 .right{flex:none;display:flex;justify-content:space-around;align-items:center}
 .list{flex:none;padding:0px 8px 0px 8px;}
-
-
 #burger{display:none;}       /*  # 為id選擇器*/
 .ham{display:none;padding:8px;}
 .ham:hover{background-color:rgb(201, 207, 218);}
@@ -32,29 +27,19 @@
 	margin:5px;}
 .menu-link{text-decoration: none;
 	color:white;}
-
 .welcome{
 height:300px;background-color:#b0e0e6;display:flex;justify-content:center;align-items:center;font-size:30px;font-weight:bold;
 }
-
 .wrapper{max-width:1200px;margin-top:30px;margin-left:auto;margin-right:auto;
 display:grid;grid-template-columns:repeat(4,1fr);
 grid-gap:15px;
 grid-auto-rows:minmax(184px,auto);
 }
-
-
-.odd>img{width:100%;display:block;aspect-ratio:4/3;}
-
+.odd>img{width:100%;display:block;aspect-ratio: 4/3;}
 .even{background-color:#b0e0e6;text-align:center;padding:5px;}
-
-
- 
 @media screen and (min-width:600px) and (max-width:1200px){
-	.wrapper{width:90%;grid-template-columns:repeat(2,1fr)};
-	
+	.wrapper{width:90%;grid-template-columns:repeat(2,1fr)};	
 }
-
 @media screen and (max-width:600px){
 	.wrapper{width:90%;grid-template-columns:1fr;}
 	.list{display:none;}
