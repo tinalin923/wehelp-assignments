@@ -44,7 +44,7 @@ grid-auto-rows:minmax(184px,auto);
 }
 
 
-.odd>img{width:100%;display:block;}
+.odd>img{width:100%;display:block;aspect-ratio:4/3;}
 
 .even{background-color:#b0e0e6;text-align:center;padding:5px;}
 
