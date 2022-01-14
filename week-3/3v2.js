@@ -9,7 +9,7 @@ function getRequest() {
     let list = data["result"]["results"];    
     let oldname = document.querySelectorAll(".even");
     let oldpic = document.querySelectorAll(".odd");
-    for (i=0;i<oldname.length;i++){
+    for (let i=0;i<oldname.length;i++){
         let place = document.getElementById('place'+i);
         let newN = document.createElement('div');
         let newname = document.createTextNode(list[i]["stitle"]);   
@@ -17,7 +17,7 @@ function getRequest() {
         newN.className = "even";
         place.replaceChild(newN, oldname[i]);
     }
-    for (i=0;i<oldpic.length;i++){
+    for (let i=0;i<oldpic.length;i++){
         let place = document.getElementById('place'+i);
         let newP = document.createElement('div');
         let newpic = document.createElement('img');
