@@ -1,14 +1,21 @@
-from flask import Flask,render_template,url_for,request
+from flask import Flask,render_template,url_for,request,redirect
 
 app=Flask(__name__,template_folder='./templates',static_folder='./templates')  
 
 
 @app.route("/",methods=["POST","GET"])
 def home():
+    return render_template('4v1.html',account=request.values['account'],password=request.value['password'])
+    
     if request.method == "POST":
+        
         if request.values['send']=='登入':
-            return render_template('4v1.html',account=request.values['account'],password=request.value['password'])
-    return render_template('4v1.html',account="",password="")
+            return redirect("/member/")
+            
+    elif :
+        return redirect("/error/?message=請輸入帳號、密碼")
+    else :
+        return redirect("/error/?message=輸入錯誤")
 
 
 # @app.route("/signin",methods=["POST","GET"]) 
