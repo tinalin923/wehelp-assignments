@@ -1,0 +1,36 @@
+<!DOCKTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='4v1.css')}}"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+    <script type="text/javascript" src="4v1.js"></script>
+    <title>Python Flask</title>
+
+</head>     
+<body>
+{% if account == "", password == "" %}
+<div class="welcome">歡迎光臨，請輸入帳號密碼</div>
+<div class="form">
+    <form action="/signin" method="POST">     
+        <div class="login"> 登入系統</div>
+        <div class="input">
+            <div class="item">帳號</div> <input type="text" name="account"  ></div>
+        <div class="input">
+            <div class="item">密碼</div> <input type="password" name="password"  ></div>
+        <input type="submit" name="send" value="登入">
+    </form>
+</div>
+{% elif account=='test',password=='test' %}
+<div class="welcome">歡迎光臨，這是會員頁</div>
+<p class="item">恭喜您，成功登入系統</p>
+{% else %}
+<div class="welcome">失敗頁面</div>
+<p class="item">帳號、或密碼輸入錯誤</p>
+{% endif %}
+
+
+    
+</body>
+
+</html>
