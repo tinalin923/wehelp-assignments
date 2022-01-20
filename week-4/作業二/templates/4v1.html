@@ -12,7 +12,7 @@
 
 <div class="welcome">歡迎光臨，請輸入帳號密碼</div>
 <div class="form">
-    <form action="/signin" method="POST">     
+    <form action={{url_for("sign")}} method="POST">     
         <div class="login"> 登入系統</div>
         <div class="input">
             <div class="item">帳號</div> <input type="text" name="account"  ></div>
