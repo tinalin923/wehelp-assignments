@@ -5,7 +5,7 @@ app=Flask(
     template_folder="./templates",
     static_folder="./static",
     static_url_path="/")  
-    
+
 app.secret_key=123654789
 
 @app.route("/")      
@@ -16,6 +16,8 @@ def home():
 def sign():
     account= request.form["account"]
     password= request.form["password"]
+    session["a"]=account
+    session["p"]=password
     if account=="test" and password=="test":
         return redirect("/member/")
     if account=="" or password=="":
