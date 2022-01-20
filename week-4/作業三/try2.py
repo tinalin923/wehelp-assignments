@@ -6,25 +6,26 @@ app=Flask(
     static_folder="./static",
     static_url_path="/")  
 
-app.secret_key=123654789
+app.secret_key=58426
 
 @app.route("/")      
 def home():
     return render_template('4v1.html')
     
-@app.route("/signin",methods=["POST"]) 
+@app.route("/signin",methods=["GET","POST"]) 
 def sign():
-    account= request.form["account"]
-    password= request.form["password"]
-    session["a"]=account
-    session["p"]=password
-    if account=="test" and password=="test":
-        return redirect("/member/")
-    if account=="" or password=="":
-        return redirect(url_for("please",message="請輸入帳號、密碼"))   #在此輸入message="請輸入帳號、密碼"，才出現在網址上
-    else:
-        return redirect(url_for("wrong",message="帳號、或密碼輸入錯誤"))
-    
+    if request.method == 'POST':
+        account= request.form["account"]
+        password= request.form["password"]
+        session["a"]=request.form["account"]
+        session["p"]=request.form["password"]
+        if account=="test" and password=="test":
+            return redirect("/member/")
+        if account=="" or password=="":
+            return redirect(url_for("please",message="請輸入帳號、密碼"))   #在此輸入message="請輸入帳號、密碼"，才出現在網址上
+        else:
+            return redirect(url_for("wrong",message="帳號、或密碼輸入錯誤"))
+    return redirect(url_for(home))
 @app.route("/member/",methods=["GET"])
 def member():
     return render_template('member.html')
