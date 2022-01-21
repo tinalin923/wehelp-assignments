@@ -16,7 +16,6 @@ def home():
 def signin():
     account= request.form["account"]
     password= request.form["password"]
-    
     if account=="test" and password=="test":
         session["account"]="test"
         session["password"]="test"
