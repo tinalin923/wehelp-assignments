@@ -38,7 +38,7 @@ def error():
     
 @app.route("/signout",methods=["GET"]) 
 def signout():
-    session.pop('paccount', None)     
+    session.pop('account', None)     
     session.pop('password', None)
     return redirect(url_for("home"))
 
