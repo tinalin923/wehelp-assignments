@@ -5,7 +5,9 @@ app=Flask(
     template_folder="./templates",
     static_folder="./static",
     static_url_path="/")  
+
 app.secret_key="123654789"
+
 @app.route("/")      
 def home():
     return render_template('4v1.html')
@@ -14,9 +16,10 @@ def home():
 def signin():
     account= request.form["account"]
     password= request.form["password"]
-    session["account"]=request.form["account"]
-    session["password"]=request.form["password"]
+    
     if account=="test" and password=="test":
+        session["account"]="test"
+        session["password"]="test"
         return redirect("/member/")
     if account=="" or password=="":
         return redirect(url_for("error",message="請輸入帳號、密碼"))
@@ -31,15 +34,12 @@ def member():
         return redirect(url_for("home"))
 @app.route("/error/")
 def error():
-    a=session.get("account",None)
-    p=session.get("password",None)
-    if a=="" or p=="":
-        return render_template("error.html",message="請輸入帳號、密碼") 
-    else:
-        return render_template("error.html",message="帳號、或密碼輸入錯誤")
+    mess=request.args.get("message","")
+    return render_template("error.html",message=mess) 
+    
 @app.route("/signout",methods=["GET"]) 
 def signout():
-    session.pop('paccount', None)
+    session.pop('paccount', None)     
     session.pop('password', None)
     return redirect(url_for("home"))
 
