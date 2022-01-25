@@ -45,13 +45,22 @@
         -> WHERE `username`='test';   
 ![image](https://user-images.githubusercontent.com/94776718/150935274-f1e69c97-5a2c-44e4-9170-8af4574c1fca.png)
 ![image](https://user-images.githubusercontent.com/94776718/150935329-96c32aa5-186d-4670-a559-9089a936bd3b.png)
-
-
+    
+    
 
 ## 要求四    
 ### ● 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
-### ● 取得 member 資料表中，所有會員 follower_count 欄位的總和。
-### ● 取得 member 資料表中，所有會員 follower_count 欄位的平均數。
+    mysql> SELECT COUNT(`id`) FROM `member`;
+![image](https://user-images.githubusercontent.com/94776718/150936575-a44a1f6b-6f92-4dbf-82f5-ce809205f354.png)
+
+### ● 取得 member 資料表中，所有會員 follower_count 欄位的總和。  
+    mysql> SELECT SUM(`follower_count`) FROM `member`;
+![image](https://user-images.githubusercontent.com/94776718/150937679-63bf25de-225a-474a-8d60-713721ca2efa.png)
+    
+### ● 取得 member 資料表中，所有會員 follower_count 欄位的平均數。  
+    mysql> SELECT AVG(`follower_count`) FROM `member`;
+![image](https://user-images.githubusercontent.com/94776718/150937722-416819d2-86e3-423f-b1a7-8d4fe8c8255b.png)
+          
 ## 要求五
 ### ● 在資料庫中，建立新資料表，取名字為message。
 
