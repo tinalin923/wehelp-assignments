@@ -39,7 +39,15 @@
         -> WHERE `username`= 'test' and `password`='test';   
 ![image](https://user-images.githubusercontent.com/94776718/150934354-485e6a42-02c0-4e45-bcf4-a2845e845040.png)
 
-### ● 使用 UPDATE 指令更新欄位 username 是 test 的會員資料，將資料中的 name 欄位改成 test2。
+### ● 使用 UPDATE 指令更新欄位 username 是 test 的會員資料，將資料中的 name 欄位改成 test2。   
+    mysql> UPDATE `member`   
+        -> SET `name`='test2'    
+        -> WHERE `username`='test';   
+![image](https://user-images.githubusercontent.com/94776718/150935274-f1e69c97-5a2c-44e4-9170-8af4574c1fca.png)
+![image](https://user-images.githubusercontent.com/94776718/150935329-96c32aa5-186d-4670-a559-9089a936bd3b.png)
+
+
+
 ## 要求四    
 ### ● 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
 ### ● 取得 member 資料表中，所有會員 follower_count 欄位的總和。
