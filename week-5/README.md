@@ -68,7 +68,8 @@
 ![image](https://user-images.githubusercontent.com/94776718/151032491-20880f4d-3ea0-4882-9f1d-fa136c8908d6.png)  
 
 ### ● 使用 SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言，資料中須包含留言者會員的姓名。
-    mysql> SELECT `name`,`content` FROM `member` JOIN `message` ON `member`.`id`=`member_id` AND `username`='test';
-![image](https://user-images.githubusercontent.com/94776718/151033093-9495a71a-db01-4a0c-ab62-25b764db4afe.png)
+    mysql> SELECT `name`,`content` FROM `member` JOIN `message` ON `member`.`id`=`member_id` AND `username`='test';   
+![image](https://user-images.githubusercontent.com/94776718/151033357-11b97c95-23fb-4e6f-a84c-897f1e402ed8.png)   
+![image](https://user-images.githubusercontent.com/94776718/151033093-9495a71a-db01-4a0c-ab62-25b764db4afe.png)   
 
 
