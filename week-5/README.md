@@ -51,7 +51,7 @@
 ## 要求四    
 ### ● 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
     mysql> SELECT COUNT(*) FROM `member`;
-![image](https://user-images.githubusercontent.com/94776718/150936575-a44a1f6b-6f92-4dbf-82f5-ce809205f354.png)
+
 ![image](https://user-images.githubusercontent.com/94776718/150949146-6e646757-8173-4a96-9cfd-9b12c21acc07.png)
 
 ### ● 取得 member 資料表中，所有會員 follower_count 欄位的總和。  
