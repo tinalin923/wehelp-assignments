@@ -24,8 +24,21 @@
 ![image](https://user-images.githubusercontent.com/94776718/150920653-7c99c1dd-19a4-4f10-bf97-e6baee39b009.png)
 
 ### ● 使用 SELECT 指令取得 member 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，由近到遠排序。
-### ● 使用 SELECT 指令取得欄位 username 是 test 的會員資料。
-### ● 使用 SELECT 指令取得欄位 username 是 test、且欄位 password 也是 test 的資料。
+    mysql> SELECT * FROM `member`    
+        -> ORDER BY `time` DESC   
+        -> LIMIT 1,3;  
+![image](https://user-images.githubusercontent.com/94776718/150931606-c31709b2-fdb7-4d56-b584-b85a12894311.png)
+
+### ● 使用 SELECT 指令取得欄位 username 是 test 的會員資料。    
+    mysql> SELECT * FROM `member`      
+        -> WHERE `username`= 'test';     
+![image](https://user-images.githubusercontent.com/94776718/150934306-99686f54-ea28-4541-bfa7-aa72819804c6.png)
+
+### ● 使用 SELECT 指令取得欄位 username 是 test、且欄位 password 也是 test 的資料。    
+    mysql> SELECT * FROM `member`    
+        -> WHERE `username`= 'test' and `password`='test';   
+![image](https://user-images.githubusercontent.com/94776718/150934354-485e6a42-02c0-4e45-bcf4-a2845e845040.png)
+
 ### ● 使用 UPDATE 指令更新欄位 username 是 test 的會員資料，將資料中的 name 欄位改成 test2。
 ## 要求四    
 ### ● 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
