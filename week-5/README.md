@@ -63,8 +63,8 @@
 ![image](https://user-images.githubusercontent.com/94776718/150937722-416819d2-86e3-423f-b1a7-8d4fe8c8255b.png)
           
 ## 要求五
-### ● 在資料庫中，建立新資料表，取名字為message。
+### ● 使用 SELECT 搭配 JOIN 語法，取得所有留言，結果須包含留言者會員的姓名。  
+    mysql> SELECT `name`,`content` FROM `member` JOIN `message` ON `member`.`id`=`member_id`;  
+![image](https://user-images.githubusercontent.com/94776718/151032491-20880f4d-3ea0-4882-9f1d-fa136c8908d6.png)  
 
-
-### ● 使用 SELECT 搭配 JOIN 語法，取得所有留言，結果須包含留言者會員的姓名。
 ### ● 使用 SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留言，資料中須包含留言者會員的姓名。
