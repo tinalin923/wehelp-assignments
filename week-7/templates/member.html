@@ -1,16 +1,17 @@
-<!DOCKTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='6v1.css')}}"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-    <title>Python Flask</title>
+{% extends "7v1.html" %}
 
-</head>     
+{% block title %}MEMBER{% endblock %}
+
+
+{% block content %}
 <body>
     <div class="welcome">歡迎光臨，這是會員頁</div>
     <p class="information">{{name}}，歡迎登入系統</p>
     <div class="information"><a  href="/signout">登出系統</a></div>
+    <p class="find">查詢會員姓名</p>
+    <form method="POST">
+        <div class="input">
+        <input type="text" name="username"  ><input type="submit" value="查詢"></div>
+    </form>
 </body>
-
-</html>
+{% endblock %}

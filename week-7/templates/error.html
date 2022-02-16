@@ -1,16 +1,11 @@
-<!DOCKTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='6v1.css')}}"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-    <title>Python Flask</title>
-</head>     
-<body>
-    <div class="welcome">失敗頁面</div>
+{% extends "7v1.html" %}
+
+{% block title %}ERROR{% endblock %}
+
+
+{% block content %}
+<div class="welcome">失敗頁面</div>
     <p></p>
     <p class="information">{{message}}</p>  
     <div class="information"><a  href="/">返回首頁</a></div>  
-</body>
-
-</html>
+{% endblock %}
