@@ -13,6 +13,7 @@ class Members(Resource):
         cursor.execute(query,params)
         user=cursor.fetchone()
         cursor.close()
+        connection.close()
         if user == None:
             return{
                 "data":user
