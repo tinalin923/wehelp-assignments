@@ -6,12 +6,15 @@
     <div class="information"><a  href="/signout">登出系統</a></div>
     <p class="find">查詢會員姓名</p>
     <div class="input">
-        <input type="text" id="username"  ><input type="submit" value="查詢" onclick="get()"></div>
-    <div id="result"> </div>
+    <form onsubmit="getName(event)">
+        <input type="text" id="username"  ><input type="submit" value="查詢" ></div>
+    </form>
+    <div  class="information"> <p id="origin"> </p>   </div>
 {% endblock %}
 {% block script %} 
     <script>
-        function get(){
+        function getName(event){
+            event.preventDefault();
             let user=document.getElementById("username").value;  
             let url= "http://127.0.0.1:3000/api/members?username="+user;
             fetch(url)
@@ -20,18 +23,22 @@
             })
             .then( (res) =>{
                 
-                let space=document.getElementById("result");
-                space.className="information";
+                let origin=document.getElementById("origin")
                 let result=document.createElement("p");
+                let parentDiv=origin.parentNode;
                 if (res.data == null){
-                    result.innerHTML="無此會員";
-                    space.appendChild(result);
+                    let content=document.createTextNode("無此會員");
+                    result.appendChild(content);
+                    parentDiv.replaceChild(result,origin);
+                    result.setAttribute("id","origin");
                     }
                 else{
                     let n=res.data.name;
                     let u=res.data.username;
-                    result.innerHTML=n+'('+u+')';
-                    space.appendChild(result);
+                    let content=document.createTextNode(n+'('+u+')');
+                    result.appendChild(content);
+                    parentDiv.replaceChild(result,origin);
+                    result.setAttribute("id","origin");
                     }
 
             })            
