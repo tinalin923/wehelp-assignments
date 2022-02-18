@@ -19,13 +19,21 @@
                 return r.json()
             })
             .then( (res) =>{
-                let n=res.data.name;
-                let u=res.data.username;
-                let space=document.getElementById("result")
-                space.className="information"
+                
+                let space=document.getElementById("result");
+                space.className="information";
                 let result=document.createElement("p");
-                result.innerHTML=n+'('+u+')';
-                space.appendChild(result);
+                if (res.data == null){
+                    result.innerHTML="無此會員";
+                    space.appendChild(result);
+                    }
+                else{
+                    let n=res.data.name;
+                    let u=res.data.username;
+                    result.innerHTML=n+'('+u+')';
+                    space.appendChild(result);
+                    }
+
             })            
             .catch( (error)=>{
                 console.log("Error during fetch:"+ error.message);
