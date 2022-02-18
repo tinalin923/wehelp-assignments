@@ -1,0 +1,36 @@
+{% extends "7v1.html" %}
+{% block title %}MEMBER{% endblock %}
+{% block content %}
+    <div class="welcome">歡迎光臨，這是會員頁</div>
+    <p class="information">{{name}}，歡迎登入系統</p>
+    <div class="information"><a  href="/signout">登出系統</a></div>
+    <p class="find">查詢會員姓名</p>
+    <div class="input">
+        <input type="text" id="username"  ><input type="submit" value="查詢" onclick="get()"></div>
+    <div id="result"> </div>
+{% endblock %}
+{% block script %} 
+    <script>
+        function get(){
+            let user=document.getElementById("username").value;  
+            let url= "http://127.0.0.1:3000/api/members?username="+user;
+            fetch(url)
+            .then( (r) =>{
+                return r.json()
+            })
+            .then( (res) =>{
+                let n=res.data.name;
+                let u=res.data.username;
+                let space=document.getElementById("result")
+                space.className="information"
+                let result=document.createElement("p");
+                result.innerHTML=n+'('+u+')';
+                space.appendChild(result);
+            })            
+            .catch( (error)=>{
+                console.log("Error during fetch:"+ error.message);
+            });
+        };
+    </script>
+{% endblock %}
+
