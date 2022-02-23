@@ -13,6 +13,7 @@ class Members(Resource):
         cursor.execute(query,params)
         user=cursor.fetchone()
         cursor.close()
+        
         if user == None:
             return{
                 "data":user
@@ -21,7 +22,8 @@ class Members(Resource):
             id=user[0]
             name=user[1]
             username=user[2]     
-            return {"data":{
+            return {
+                "data":{
                 "id":id,
                 "name":name,
                 "username":username
