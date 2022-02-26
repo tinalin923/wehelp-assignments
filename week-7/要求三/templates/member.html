@@ -1,0 +1,96 @@
+{% extends "7v1.html" %}
+{% block title %}MEMBER{% endblock %}
+{% block content %}
+    <div class="welcome">歡迎光臨，這是會員頁</div>
+    <p class="information">{{name_template}}，歡迎登入系統</p>
+    <div class="information"><a  href="/signout">登出系統</a></div>
+    <p class="find">查詢會員姓名</p>
+    <div class="input">
+        <form onsubmit="getName(event);">
+            <input type="text" id="username"> 
+            <input type="submit" value="查詢" >
+        </form>
+    </div> 
+        <div  class="information"> <p id="origin"></p>   </div>
+    
+
+    <p class="find">更新我的姓名</p>
+    <div class="input">
+        
+        <input type="text" id="newname" > 
+        <button type="submit" onclick="updateName();">更新</button>
+        
+    </div>
+        <div class="information">  <p id="success"></p>   </div>
+    
+
+
+{% endblock %}
+{% block script %} 
+    <script>
+        function getName(event){
+            event.preventDefault();
+            let user=document.getElementById("username").value;  
+            let url= "/api/members?username="+user;
+            fetch(url)
+            .then( (r) =>{
+                return r.json();
+            })
+            .then( (res) =>{
+                let origin=document.getElementById("origin");
+                // let result=document.createElement("p");
+                // let parentDiv=origin.parentNode;
+                if (res.data == null){
+                    // let content=document.createTextNode("無此會員");  
+                    // result.appendChild(content);
+                    // parentDiv.replaceChild(result,origin);
+                    // result.setAttribute("id","origin");
+                    origin.textContent="無此會員";              // 老師建議使用textContent,如果用createElement可能會一直重複新增,就還要搭配replaceChild
+                    }
+                else{
+                    let n=res.data.name;
+                    let u=res.data.username;
+                    // let content=document.createTextNode(n+'('+u+')');
+                    // result.appendChild(content);
+                    // parentDiv.replaceChild(result,origin);
+                    // result.setAttribute("id","origin");
+                    origin.textContent= n +'('+ u +')';
+                    }
+            })            
+            .catch( (error)=>{
+                console.log("Error during fetch:"+ error.message);
+            });
+        };
+
+        function updateName(){
+            
+            let newname = document.getElementById("newname").value;
+            let url = "http://127.0.0.1:3000/api/member";
+            let data = { "name":newname };
+            //console.log(data);
+            //console.log(JSON.stringify(data));                        // 將 Javascript 物件轉為 JSON格式的字串
+            fetch(url,{
+                method:"POST",
+                headers:{
+                    'Content-Type':'application/json;charset=utf-8'},   //讓sever端知道你的需求格式為json
+                body:JSON.stringify(data),                              //透過JSON.stringify來轉換成 string 方式傳遞
+            }).then( res =>{
+                return res.json();
+            }).then(
+                response=>{
+                    console.log(response);
+                    console.log(response.ok);
+                    let success=document.getElementById("success");
+                    success.textContent="更新成功";
+                }
+            )
+            .catch( error=>{
+                console.log("Error during fetch:"+ error.message);
+            });
+        };
+    </script>
+{% endblock %}
+
+
+
+
