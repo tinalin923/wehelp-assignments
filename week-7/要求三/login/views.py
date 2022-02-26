@@ -106,8 +106,7 @@ def updateName():
     else:
         response=jsonify({"error":True})
         return response
-    # else:
-    #     return redirect(url_for("login_name.member"))
+   
 
 
 
