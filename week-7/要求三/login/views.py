@@ -51,7 +51,7 @@ from flask import Blueprint,render_template,request,session,redirect,url_for,jso
 api_bp=Blueprint('api_name',__name__,template_folder='./templates',static_folder="./static")
 from db import connection
 
-@api_bp.route('/api/members',methods=["GET"])  
+@login_bp.route('/api/members',methods=["GET"])  
 def searchName():
     u=request.args.get("username")
     cursor=connection.cursor()
@@ -102,6 +102,9 @@ def updateName():
             cursor.close()
             response=make_response(jsonify({"ok":True}),200)
             # response=jsonify({"ok":True})
+            return response
+        else:
+            response=jsonify({"ok":True})
             return response
     else:
         response=jsonify({"error":True})
